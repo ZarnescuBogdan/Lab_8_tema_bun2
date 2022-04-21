@@ -48,7 +48,7 @@ void UI::deleteApartment(int number) {
 
 void UI::deleteApartments(int nrStart, int nrEnd) {
     for(auto &exp: this->service.getAll()) {
-        if(nrStart <= exp.getNumber() and exp.getNumber() >= nrEnd) {
+        if(nrStart <= exp.getNumber() and exp.getNumber() <= nrEnd) {
             service.delete1(exp);
         }
     }
@@ -132,7 +132,7 @@ vector<Expense> UI::sortByType(const char *type) {
     }
     for(int i = 0; i < expenses.size(); i++) {
         for(int j = i + 1; j < expenses.size(); j++) {
-            if(expenses[i].getSum() < expenses[j].getSum()) {
+            if(expenses[i] < expenses[j]) {
                 swap(expenses[i], expenses[j]);
             }
         }
@@ -143,7 +143,7 @@ vector<Expense> UI::sortByType(const char *type) {
 
 void UI::filterType(const char *type) {
     for(auto &exp: this->service.getAll()) {
-        if(strcmp(exp.getType(), type) == 0) {
+        if(strcmp(exp.getType(), type) != 0) {
             this->service.delete1(exp);
         }
     }
@@ -179,11 +179,11 @@ void UI::Options() {
     cout << "7. Show all the expenses with the sum greater than a given number." << endl;
     cout << "8. Show all the expenses with the sum equal to a given number." << endl;
     cout << "9. Show sum of all expenses that have their type a given type." << endl << endl;
-    cout << "a. Show all of the entities" << endl;
-    cout << "b. Show the most valuable expense of a given aparment." << endl;
-    cout << "c. Sort by sum of expense for a given type of expense. " << endl;
-    cout << "d. Filter all the expenses in order to remain just the expenses with a given type." << endl;
-    cout << "e. Filter for expenses with a sum lower than a given number." << endl;
+    cout << "s. Show all of the entities" << endl;
+    cout << "a. Show the most valuable expense of a given aparment." << endl;
+    cout << "b. Sort by sum of expense for a given type of expense. " << endl;
+    cout << "c. Filter all the expenses in order to remain just the expenses with a given type." << endl;
+    cout << "d. Filter for expenses with a sum lower than a given number." << endl;
     cout << "" << endl;
     cout << "x. Exit." << endl;
 }

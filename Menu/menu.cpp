@@ -101,16 +101,16 @@ void menu() {
                 cout << expense.getId() << " " << expense.getNumber() << " " << expense.getType() << " " << expense.getSum() << endl;
                 break;
             }
-            //case 'b': {
-            //    char type[100];
-            //    cout << "Give type: ";
-            //    cin >> type;
-            //    vector<Expense> expenses = ui.sortByType(type);
-            //    for(auto &exp: expenses) {
-            //        cout << exp.getId() << " " << exp.getNumber() << " " << exp.getType() << " " << exp.getSum() << endl;
-            //    }
-            //    break;
-            //}
+            case 'b': {
+                char type[100];
+                cout << "Give type: ";
+                cin >> type;
+                vector<Expense> expenses = ui.sortByType(type);
+                for(auto &exp: expenses) {
+                    cout << exp.getId() << " " << exp.getNumber() << " " << exp.getType() << " " << exp.getSum() << endl;
+                }
+                break;
+            }
             case 'c': {
                 char type[100];
                 cout << "Give type: ";

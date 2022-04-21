@@ -168,17 +168,17 @@ bool Expense::isValid() {
 }
 
 bool Expense::operator<=(const Expense &expense) {
-    return this->sum >= expense.sum;
-}
-
-bool Expense::operator<(const Expense &expense) {
-    return this->sum > expense.sum;
-}
-
-bool Expense::operator>=(const Expense &expense) {
     return this->sum <= expense.sum;
 }
 
-bool Expense::operator>(const Expense &expense) {
+bool Expense::operator<(const Expense &expense) {
     return this->sum < expense.sum;
+}
+
+bool Expense::operator>=(const Expense &expense) {
+    return this->sum >= expense.sum;
+}
+
+bool Expense::operator>(const Expense &expense) {
+    return this->sum > expense.sum;
 }
